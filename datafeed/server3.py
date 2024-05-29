@@ -24,6 +24,8 @@ from datetime import timedelta, datetime
 
 import csv
 import dateutil.parser
+#from datetime import datetime
+
 import os.path
 
 import operator
@@ -163,6 +165,7 @@ def read_csv():
     with open('test.csv', 'rt') as f:
         for time, stock, side, order, size in csv.reader(f):
             yield dateutil.parser.parse(time), stock, side, float(order), int(size)
+            #yield datetime.strptime(time, '%Y-%m-%d %H:%M:%S'), stock, side, float(order), int(size)
 
 
 ################################################################################
